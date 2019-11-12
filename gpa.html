@@ -16,7 +16,7 @@
 	<table id="unweightedTable" class="tableWithoutBorders">
 		<thead>
 			<tr>
-				<th>&#160;</th>
+				<th class="courses">Courses</th>
 				<th class="letter">Letter Grade</th>
 				<th class="course">Course Credits</th>
 			</tr>
@@ -62,13 +62,17 @@
 	<table id="cumulativeTable" class="tableWithoutBorders">
 		<thead>
 			<tr>
-				<th class="letter">Current GPA</th>
-				<th class="course">Credits</th>
+				<th class="current">Cumulatives</th>
+				<th class="current-totals">Current Totals</th>
 			</tr>
 		</thead>
 		<tbody>
 			<tr>
+				<th class="letter">Current GPA</th>
 				<td><input type="text" id="cumulativeGrade" oninput="calculateGPA()" /><label for="cumulativeGrade" class="sr-only">Cumulative Letter Grade</label></td>
+			</tr>
+			<tr>
+				<th class="course">Credits</th>
 				<td><input type="text" id="cumulativeCredits" oninput="calculateGPA()" /><label for="cumulativeCredits" class="sr-only">Cumulative Credits</label></td>
 			</tr>
 		</tbody>
