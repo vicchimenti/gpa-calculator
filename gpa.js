@@ -112,7 +112,7 @@
 			gradeString = document.getElementById("grade" + i).value;
 			creditString = document.getElementById("credits" + i).value;
 			classCredits = parseInt(creditString);
-			console.log(gradeString);
+			console.log("gradeString " + gradeString);
 			var validGrade = false;
 			if (gradeString) {
 				validGrade = false;
