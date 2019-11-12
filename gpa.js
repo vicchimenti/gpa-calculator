@@ -115,24 +115,25 @@
 
 			gradeString = document.getElementById("grade" + i).value;
 			creditString = document.getElementById("credits" + i).value;
-			classCredits = parseInt(creditString);
-			console.log("gradeString " + gradeString);
-			if (gradeString) {
-				console.log("grade string");
-
-				for (j = 0; j < gradeChartTotal; j++) {
-					console.log("calculateGPA j for loop");
-
-					if (gradeString == gradeChart[j]) {
-						console.log("calculateGPA j for loop if");
-
-						totalCredits += classCredits;
-						totalGrade += (gpaChart[j] * classCredits);
-						validGrade = true;
+			if (creditString.length < 4) {
+				classCredits = parseInt(creditString);
+				console.log("gradeString " + gradeString);
+				if (gradeString.length < 3) {
+					console.log("grade string");
+					for (j = 0; j < gradeChartTotal; j++) {
+						console.log("calculateGPA j for loop");
+						if (gradeString == gradeChart[j]) {
+							console.log("calculateGPA j for loop if");
+							totalCredits += classCredits;
+							totalGrade += (gpaChart[j] * classCredits);
+							validGrade = true;
+						}
 					}
 				}
 			}
 
+
+			// style the table elements
 			if (validGrade == true) {
 				console.log("validgrade true");
 				document.getElementById("grade" + i).style.borderColor = "rgb(108, 179, 63)";
