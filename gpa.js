@@ -1,7 +1,5 @@
 <script>
-	var r = 4;
-	var i = 1;
-	var j = 0;
+
 	var totalGrade;
 	var totalCredits;
 	var totalCumulativeGrade;
@@ -119,39 +117,41 @@
 			classCredits = parseInt(creditString);
 			console.log("gradeString " + gradeString);
 			if (gradeString) {
-				console.log("if grade false");
+				console.log("grade string");
 
-				validGrade = false;
-			}
-			for (j = 0; j < gradeChartTotal; j++) {
-				console.log("calculateGPA j for loop");
+				for (j = 0; j < gradeChartTotal; j++) {
+					console.log("calculateGPA j for loop");
 
-				if (gradeString == gradeChart[j]) {
-					console.log("calculateGPA j for loop if");
+					if (gradeString == gradeChart[j]) {
+						console.log("calculateGPA j for loop if");
 
-					totalCredits += classCredits;
-					totalGrade += (gpaChart[j] * classCredits);
-					validGrade = true;
+						totalCredits += classCredits;
+						totalGrade += (gpaChart[j] * classCredits);
+						validGrade = true;
+					}
 				}
 			}
+
 			if (validGrade == true) {
 				console.log("validgrade true");
-				//document.getElementById("grade" + i).style.borderColor = "rgb(108, 179, 63)";
-			}
-			else if (validGrade == false) {
-				console.log("validgrade false");
-				//document.getElementById("grade" + i).style.borderColor = "red";
-			}
-			else if (classCredits && classCredits < 0 || classCredits > 10) {
-				//document.getElementById("credits" + i).style.borderColor = "red";
-			}
-			else if (!classCredits && creditString) {
-				//document.getElementById("credits" + i).style.borderColor = "red";
+				document.getElementById("grade" + i).style.borderColor = "rgb(108, 179, 63)";
 			}
 			else {
-				//document.getElementById("credits" + i).style.borderColor = "rgb(108, 179, 63)";
+				console.log("validgrade false");
+				document.getElementById("grade" + i).style.borderColor = "red";
 			}
-			//console.log("classCredits = " + classCredits);
+
+			if (classCredits && classCredits < 0 || classCredits > 10) {
+				document.getElementById("credits" + i).style.borderColor = "red";
+			}
+			else if (!classCredits && creditString) {
+				document.getElementById("credits" + i).style.borderColor = "red";
+			}
+			else {
+				document.getElementById("credits" + i).style.borderColor = "rgb(108, 179, 63)";
+			}
+
+			console.log("classCredits = " + classCredits);
 		}
 		console.log("grade points = " + totalGrade);
 		console.log("credits = " + totalCredits);
@@ -160,12 +160,17 @@
 		GPA.unweighted = totalGrade / totalCredits;
 		GPA.unweighted = Math.round( 100 * GPA.unweighted );
 		GPA.unweighted = GPA.unweighted / 100;
-		//console.log("GPA = " + GPA.unweighted);
+		console.log("GPA = " + GPA.unweighted);
 		var display1 = document.getElementById("unweightedGPA");
+
 		if (GPA.unweighted) {
+			console.log("if gpaunweighted");
+
 			display1.innerHTML = "Unweighted GPA: " + GPA.unweighted.toFixed(2);
 		}
 		else {
+			console.log("else gpaunweighted");
+
 			display1.innerHTML = "Unweighted GPA:";
 		}
 
@@ -173,27 +178,39 @@
 		cumulativeGradeString = document.getElementById("cumulativeGrade").value;
 		cumulativeCreditString = document.getElementById("cumulativeCredits").value;
 		totalCumulativeGrade = parseFloat(cumulativeGradeString);
-		//console.log(totalCumulativeGrade);
+		console.log("totalCumulativeGrade: " + totalCumulativeGrade);
+
 		totalCumulativeCredits = parseInt(cumulativeCreditString);
-		//console.log(totalCumulativeCredits);
+		console.log("totalCumulativeCredits: " + totalCumulativeCredits);
+
 		if (totalCumulativeGrade < 0) {
-			//document.getElementById("cumulativeGrade").style.borderColor = "red";
+			console.log("if totcumgrade");
+
+			document.getElementById("cumulativeGrade").style.borderColor = "red";
 		}
 		else {
-			//document.getElementById("cumulativeGrade").style.borderColor = "rgb(153, 134, 117)";
+			console.log("else totcumgrade");
+
+			document.getElementById("cumulativeGrade").style.borderColor = "rgb(153, 134, 117)";
 		}
+
 		GPA.cumulative = ( (totalCumulativeGrade * totalCumulativeCredits) + totalGrade) / (totalCumulativeCredits + totalCredits);
 		GPA.cumulative = Math.round( 100 * GPA.cumulative );
 		GPA.cumulative = GPA.cumulative / 100;
 		var display2 = document.getElementById("cumulativeGPA");
+
 		if (GPA.cumulative && totalCumulativeGrade >= 0) {
+			console.log("if cum and totcumgrade");
 			display2.innerHTML = "Cumulative GPA: " + GPA.cumulative.toFixed(2);
 		}
 		else {
+			console.log("if cum and totcumgrade else");
+
 			display2.innerHTML = "Cumulative GPA:";
 		}
 	}
-
+	
+	r = 0;
 	function addRow() {
 		console.log("add row");
 		var table = document.getElementById("unweightedTable");
