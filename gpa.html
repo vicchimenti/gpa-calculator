@@ -2,17 +2,17 @@
 	<h3>To calculate estimated quarter GPA:&#160;</h3>
 	<ol>
 		<li>Enter estimated grade (e.g. A, A-, B+) and number of credits for each course.</li>
-		<li>To calculate more courses, click "add course" until enough courses have been added.</li>
+		<!-- <li>To calculate more courses, click "add course" until enough courses have been added.</li> -->
 		<li>The estimated Quarter GPA will appear automatically after the grade and credits of each class have been entered.&#160;</li>
 	</ol>
-	<div id="gpaIconArea">
+	<!-- <div id="gpaIconArea">
 		<button aria-label="Add Additional Course" id="addButton" class="gpaIconText btn btn-default" onclick="addRow()">
 			<span id="gpaAddIcon" class="glyphicon glyphicon-plus"></span>Add course
 		</button>
 		<button aria-label="Remove Course" id="removeButton" class="gpaIconText btn btn-default" onclick="removeRow()">
 			<span id="gpaRemoveIcon" class="glyphicon glyphicon-minus"></span>Remove course
 		</button>
-	</div>
+	</div> -->
 	<table id="unweightedTable" class="tableWithoutBorders">
 		<thead>
 			<tr>
@@ -36,6 +36,16 @@
 				<th>Course 3</th>
 				<td><input type="text" id="grade3" class="grade" oninput="calculateGPA()" /><label for="grade3" class="sr-only">Course 3 Letter Grade</label></td>
 				<td><input type="text" id="credits3" class="credits" oninput="calculateGPA()" /><label for="credits3" class="sr-only">Course 3 Courses</label></td>
+			</tr>
+			<tr>
+				<th>Course 4</th>
+				<td><input type="text" id="grade4" class="grade" oninput="calculateGPA()" /><label for="grade4" class="sr-only">Course 4 Letter Grade</label></td>
+				<td><input type="text" id="credits4" class="credits" oninput="calculateGPA()" /><label for="credits4" class="sr-only">Course 4 Courses</label></td>
+			</tr>
+			<tr>
+				<th>Course 5</th>
+				<td><input type="text" id="grade5" class="grade" oninput="calculateGPA()" /><label for="grade5" class="sr-only">Course 5 Letter Grade</label></td>
+				<td><input type="text" id="credits5" class="credits" oninput="calculateGPA()" /><label for="credits5" class="sr-only">Course 5 Courses</label></td>
 			</tr>
 		</tbody>
 	</table>
