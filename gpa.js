@@ -1,22 +1,22 @@
 <script>
-var r = 4;
-var i = 1;
-var j = 0;
-var totalGrade;
-var totalCredits;
-var totalCumulativeGrade;
-var totalCumulativeCredits;
-var classCredits;
-var gradeString;
-var creditString;
-var cumulativeGradeString;
-var cumulativeCreditString;
-var GPA = {
-	unweighted: 0,
-	cumulative: 0
-};
+	var r = 4;
+	var i = 1;
+	var j = 0;
+	var totalGrade;
+	var totalCredits;
+	var totalCumulativeGrade;
+	var totalCumulativeCredits;
+	var classCredits;
+	var gradeString;
+	var creditString;
+	var cumulativeGradeString;
+	var cumulativeCreditString;
+	var GPA = {
+		unweighted: 0,
+		cumulative: 0
+	};
 
-// Define grades and their GPA equivalent
+	// Define grades and their GPA equivalent
 	var gradeChart = {};
 	var gpaChart = {};
 
@@ -103,112 +103,114 @@ var GPA = {
 	gradeChart[26] = "f";
 	gpaChart[26] = 0;
 
-function calculateGPA() {
+	function calculateGPA() {
 
-	// Calculate total grade points and credits
-	totalGrade = 0;
-	totalCredits = 0;
-	for (i = 1; i < r; i++) {
-		gradeString = document.getElementById("grade" + i).value;
-		creditString = document.getElementById("credits" + i).value;
-		classCredits = parseInt(creditString);
-		//console.log(gradeString);
-		var validGrade = false;
-		if (gradeString) {
-			validGrade = false;
-		}
-		for (j = 0; j < gradeChartTotal; j++) {
-			if (gradeString == gradeChart[j]) {
-				totalCredits += classCredits;
-				totalGrade += (gpaChart[j] * classCredits);
-				validGrade = true;
+		// Calculate total grade points and credits
+		totalGrade = 0;
+		totalCredits = 0;
+		for (i = 1; i < r; i++) {
+			gradeString = document.getElementById("grade" + i).value;
+			creditString = document.getElementById("credits" + i).value;
+			classCredits = parseInt(creditString);
+			console.log(gradeString);
+			var validGrade = false;
+			if (gradeString) {
+				validGrade = false;
 			}
+			for (j = 0; j < gradeChartTotal; j++) {
+				if (gradeString == gradeChart[j]) {
+					totalCredits += classCredits;
+					totalGrade += (gpaChart[j] * classCredits);
+					validGrade = true;
+				}
+			}
+			if (validGrade == true) {
+				console.log("validgrade true");
+				//document.getElementById("grade" + i).style.borderColor = "rgb(108, 179, 63)";
+			}
+			else if (validGrade == false) {
+				console.log("validgrade false");
+				//document.getElementById("grade" + i).style.borderColor = "red";
+			}
+			else if (classCredits && classCredits < 0 || classCredits > 10) {
+				//document.getElementById("credits" + i).style.borderColor = "red";
+			}
+			else if (!classCredits && creditString) {
+				//document.getElementById("credits" + i).style.borderColor = "red";
+			}
+			else {
+				//document.getElementById("credits" + i).style.borderColor = "rgb(108, 179, 63)";
+			}
+			//console.log("classCredits = " + classCredits);
 		}
-		if (validGrade == true) {
-			//document.getElementById("grade" + i).style.borderColor = "rgb(108, 179, 63)";
-		}
-		else if (validGrade == false) {
-			//document.getElementById("grade" + i).style.borderColor = "red";
-		}
-		else if (classCredits && classCredits < 0 || classCredits > 10) {
-			//document.getElementById("credits" + i).style.borderColor = "red";
-		}
-		else if (!classCredits && creditString) {
-			//document.getElementById("credits" + i).style.borderColor = "red";
+		console.log("grade points = " + totalGrade);
+		console.log("credits = " + totalCredits);
+
+		// Calculate GPA
+		GPA.unweighted = totalGrade / totalCredits;
+		GPA.unweighted = Math.round( 100 * GPA.unweighted );
+		GPA.unweighted = GPA.unweighted / 100;
+		//console.log("GPA = " + GPA.unweighted);
+		var display1 = document.getElementById("unweightedGPA");
+		if (GPA.unweighted) {
+			display1.innerHTML = "Unweighted GPA: " + GPA.unweighted.toFixed(2);
 		}
 		else {
-			//document.getElementById("credits" + i).style.borderColor = "rgb(108, 179, 63)";
+			display1.innerHTML = "Unweighted GPA:";
 		}
-		//console.log("classCredits = " + classCredits);
-	}
-	//console.log("grade points = " + totalGrade);
-	//console.log("credits = " + totalCredits);
 
-	// Calculate GPA
-	GPA.unweighted = totalGrade / totalCredits;
-	GPA.unweighted = Math.round( 100 * GPA.unweighted );
-	GPA.unweighted = GPA.unweighted / 100;
-	//console.log("GPA = " + GPA.unweighted);
-	var display1 = document.getElementById("unweightedGPA");
-	if (GPA.unweighted) {
-		display1.innerHTML = "Unweighted GPA: " + GPA.unweighted.toFixed(2);
-	}
-	else {
-		display1.innerHTML = "Unweighted GPA:";
+		//Calculate cumulative GPA
+		cumulativeGradeString = document.getElementById("cumulativeGrade").value;
+		cumulativeCreditString = document.getElementById("cumulativeCredits").value;
+		totalCumulativeGrade = parseFloat(cumulativeGradeString);
+		//console.log(totalCumulativeGrade);
+		totalCumulativeCredits = parseInt(cumulativeCreditString);
+		//console.log(totalCumulativeCredits);
+		if (totalCumulativeGrade < 0) {
+			//document.getElementById("cumulativeGrade").style.borderColor = "red";
+		}
+		else {
+			//document.getElementById("cumulativeGrade").style.borderColor = "rgb(153, 134, 117)";
+		}
+		GPA.cumulative = ( (totalCumulativeGrade * totalCumulativeCredits) + totalGrade) / (totalCumulativeCredits + totalCredits);
+		GPA.cumulative = Math.round( 100 * GPA.cumulative );
+		GPA.cumulative = GPA.cumulative / 100;
+		var display2 = document.getElementById("cumulativeGPA");
+		if (GPA.cumulative && totalCumulativeGrade >= 0) {
+			display2.innerHTML = "Cumulative GPA: " + GPA.cumulative.toFixed(2);
+		}
+		else {
+			display2.innerHTML = "Cumulative GPA:";
+		}
 	}
 
-	//Calculate cumulative GPA
-	cumulativeGradeString = document.getElementById("cumulativeGrade").value;
-	cumulativeCreditString = document.getElementById("cumulativeCredits").value;
-	totalCumulativeGrade = parseFloat(cumulativeGradeString);
-	//console.log(totalCumulativeGrade);
-	totalCumulativeCredits = parseInt(cumulativeCreditString);
-	//console.log(totalCumulativeCredits);
-	if (totalCumulativeGrade < 0) {
-		//document.getElementById("cumulativeGrade").style.borderColor = "red";
-	}
-	else {
-		//document.getElementById("cumulativeGrade").style.borderColor = "rgb(153, 134, 117)";
-	}
-	GPA.cumulative = ( (totalCumulativeGrade * totalCumulativeCredits) + totalGrade) / (totalCumulativeCredits + totalCredits);
-	GPA.cumulative = Math.round( 100 * GPA.cumulative );
-	GPA.cumulative = GPA.cumulative / 100;
-	var display2 = document.getElementById("cumulativeGPA");
-	if (GPA.cumulative && totalCumulativeGrade >= 0) {
-		display2.innerHTML = "Cumulative GPA: " + GPA.cumulative.toFixed(2);
-	}
-	else {
-		display2.innerHTML = "Cumulative GPA:";
-	}
-}
-
-function addRow() {
-	var table = document.getElementById("unweightedTable");
-	{
-		var row = table.insertRow(r);
-		var cell1 = row.insertCell(0);
-		var cell2 = row.insertCell(1);
-		var cell3 = row.insertCell(2);
-		cell1.outerHTML = "<th>Course " + r.toString() + "</th>";
-		cell2.innerHTML = "<input id=\"grade" + (r).toString() + "\" type=\"text\" oninput=\"calculateGPA()\" id=\"Course" + r.toString() + "letterGrade\" /><label for=\"Course" +  r.toString() + "letterGrade\" class=\"sr-only\">Course " + r.toString() + " Letter Grade</label>";
-		cell3.innerHTML = "<input id=\"credits" + (r).toString() + "\" type=\"text\" oninput=\"calculateGPA()\" id=\"Course" + r.toString() + "credits\"/><label for=\"Course" +  r.toString() + "letterGrade\" class=\"sr-only\">Course " + r.toString() + " Credits</label>";
-	}
-	r++;
-	if (r > 1) {
-		$("#removeButton").removeClass("disabled");
-	}
-	//console.log(r);
-}
-
-function removeRow() {
-	r--;
-	if(r > 1){
-		document.getElementById("unweightedTable").deleteRow(r);
-	}else{
+	function addRow() {
+		var table = document.getElementById("unweightedTable");
+		{
+			var row = table.insertRow(r);
+			var cell1 = row.insertCell(0);
+			var cell2 = row.insertCell(1);
+			var cell3 = row.insertCell(2);
+			cell1.outerHTML = "<th>Course " + r.toString() + "</th>";
+			cell2.innerHTML = "<input id=\"grade" + (r).toString() + "\" type=\"text\" oninput=\"calculateGPA()\" id=\"Course" + r.toString() + "letterGrade\" /><label for=\"Course" +  r.toString() + "letterGrade\" class=\"sr-only\">Course " + r.toString() + " Letter Grade</label>";
+			cell3.innerHTML = "<input id=\"credits" + (r).toString() + "\" type=\"text\" oninput=\"calculateGPA()\" id=\"Course" + r.toString() + "credits\"/><label for=\"Course" +  r.toString() + "letterGrade\" class=\"sr-only\">Course " + r.toString() + " Credits</label>";
+		}
 		r++;
+		if (r > 1) {
+			$("#removeButton").removeClass("disabled");
+		}
+		console.log(r);
 	}
-	if (r == 2) {
-		$("#removeButton").addClass("disabled");
+
+	function removeRow() {
+		r--;
+		if(r > 1){
+			document.getElementById("unweightedTable").deleteRow(r);
+		}else{
+			r++;
+		}
+		if (r == 2) {
+			$("#removeButton").addClass("disabled");
+		}
 	}
-}
 </script>
