@@ -1,5 +1,5 @@
 <script>
-
+	// declare script variables
 	var numRows = 5;
 	var totalGrade;
 	var totalCredits;
@@ -171,14 +171,14 @@
 
 		if (GPA.unweighted) {
 			console.log("if GPA.unweighted");
-
-			display1.innerHTML = "Unweighted GPA: " + GPA.unweighted.toFixed(2);
+			display1.innerHTML = GPA.unweighted.toFixed(2);
+			// display1.innerHTML = "Unweighted GPA: " + GPA.unweighted.toFixed(2);
 		}
-		else {
-			console.log("else GPA.unweighted");
-
-			display1.innerHTML = "Unweighted GPA:";
-		}
+		// else {
+		// 	console.log("else GPA.unweighted");
+		//
+		// 	display1.innerHTML = "Unweighted GPA:";
+		// }
 
 		//Calculate cumulative GPA
 		cumulativeGradeString = document.getElementById("cumulativeGrade").value;
@@ -207,13 +207,14 @@
 
 		if (GPA.cumulative && totalCumulativeGrade >= 0) {
 			console.log("if cumulative and totalCumulativeGrade");
-			display2.innerHTML = "Cumulative GPA: " + GPA.cumulative.toFixed(2);
+			// display2.innerHTML = "Cumulative GPA: " + GPA.cumulative.toFixed(2);
+			display2.innerHTML = GPA.cumulative.toFixed(2);
 		}
-		else {
-			console.log("if cumulative and totalCumulativeGrade else");
-
-			display2.innerHTML = "Cumulative GPA:";
-		}
+		// else {
+		// 	console.log("if cumulative and totalCumulativeGrade else");
+		//
+		// 	display2.innerHTML = "Cumulative GPA:";
+		// }
 	}
 
 	function addRow() {
