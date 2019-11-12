@@ -1,5 +1,6 @@
 <script>
 
+	var numRows = 3;
 	var totalGrade;
 	var totalCredits;
 	var totalCumulativeGrade;
@@ -109,7 +110,7 @@
 		totalCredits = 0;
 		var validGrade = false;
 
-		for (i = 1; i < r; i++) {
+		for (i = 1; i <= numRows; i++) {
 			console.log("calculateGPA for loop");
 
 			gradeString = document.getElementById("grade" + i).value;
@@ -142,12 +143,17 @@
 			}
 
 			if (classCredits && classCredits < 0 || classCredits > 10) {
+				console.log("if classCredits && classCredits");
 				document.getElementById("credits" + i).style.borderColor = "red";
 			}
 			else if (!classCredits && creditString) {
+				console.log("else if classCredits && classCredits");
+
 				document.getElementById("credits" + i).style.borderColor = "red";
 			}
 			else {
+				console.log("else classCredits && classCredits");
+
 				document.getElementById("credits" + i).style.borderColor = "rgb(108, 179, 63)";
 			}
 
@@ -164,12 +170,12 @@
 		var display1 = document.getElementById("unweightedGPA");
 
 		if (GPA.unweighted) {
-			console.log("if gpaunweighted");
+			console.log("if GPA.unweighted");
 
 			display1.innerHTML = "Unweighted GPA: " + GPA.unweighted.toFixed(2);
 		}
 		else {
-			console.log("else gpaunweighted");
+			console.log("else GPA.unweighted");
 
 			display1.innerHTML = "Unweighted GPA:";
 		}
@@ -184,12 +190,12 @@
 		console.log("totalCumulativeCredits: " + totalCumulativeCredits);
 
 		if (totalCumulativeGrade < 0) {
-			console.log("if totcumgrade");
+			console.log("if totalCumulativeGrade");
 
 			document.getElementById("cumulativeGrade").style.borderColor = "red";
 		}
 		else {
-			console.log("else totcumgrade");
+			console.log("else totalCumulativeGrade");
 
 			document.getElementById("cumulativeGrade").style.borderColor = "rgb(153, 134, 117)";
 		}
@@ -200,17 +206,16 @@
 		var display2 = document.getElementById("cumulativeGPA");
 
 		if (GPA.cumulative && totalCumulativeGrade >= 0) {
-			console.log("if cum and totcumgrade");
+			console.log("if cumulative and totalCumulativeGrade");
 			display2.innerHTML = "Cumulative GPA: " + GPA.cumulative.toFixed(2);
 		}
 		else {
-			console.log("if cum and totcumgrade else");
+			console.log("if cumulative and totalCumulativeGrade else");
 
 			display2.innerHTML = "Cumulative GPA:";
 		}
 	}
-	
-	r = 0;
+
 	function addRow() {
 		console.log("add row");
 		var table = document.getElementById("unweightedTable");
@@ -232,15 +237,15 @@
 
 	function removeRow() {
 		console.log("remove row");
-		r--;
+		numRows--;
 		if(r > 1){
 			document.getElementById("unweightedTable").deleteRow(r);
 		}else{
-			r++;
+			numRows++;
 		}
-		if (r == 2) {
+		if (numRows == 2) {
 			$("#removeButton").addClass("disabled");
 		}
-		console.log("remove row r: " + r);
+		console.log("remove row numRows: " + numRows);
 	}
 </script>
