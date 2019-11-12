@@ -104,21 +104,31 @@
 	gpaChart[26] = 0;
 
 	function calculateGPA() {
+		console.log("calculateGPA");
 
 		// Calculate total grade points and credits
 		totalGrade = 0;
 		totalCredits = 0;
+		var validGrade = false;
+
 		for (i = 1; i < r; i++) {
+			console.log("calculateGPA for loop");
+
 			gradeString = document.getElementById("grade" + i).value;
 			creditString = document.getElementById("credits" + i).value;
 			classCredits = parseInt(creditString);
 			console.log("gradeString " + gradeString);
-			var validGrade = false;
 			if (gradeString) {
+				console.log("if grade false");
+
 				validGrade = false;
 			}
 			for (j = 0; j < gradeChartTotal; j++) {
+				console.log("calculateGPA j for loop");
+
 				if (gradeString == gradeChart[j]) {
+					console.log("calculateGPA j for loop if");
+
 					totalCredits += classCredits;
 					totalGrade += (gpaChart[j] * classCredits);
 					validGrade = true;
@@ -185,6 +195,7 @@
 	}
 
 	function addRow() {
+		console.log("add row");
 		var table = document.getElementById("unweightedTable");
 		{
 			var row = table.insertRow(r);
@@ -199,10 +210,11 @@
 		if (r > 1) {
 			$("#removeButton").removeClass("disabled");
 		}
-		console.log(r);
+		console.log("add row r: " + r);
 	}
 
 	function removeRow() {
+		console.log("remove row");
 		r--;
 		if(r > 1){
 			document.getElementById("unweightedTable").deleteRow(r);
@@ -212,5 +224,6 @@
 		if (r == 2) {
 			$("#removeButton").addClass("disabled");
 		}
+		console.log("remove row r: " + r);
 	}
 </script>
