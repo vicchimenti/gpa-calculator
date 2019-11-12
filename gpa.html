@@ -1,27 +1,15 @@
 <div class="standardContent">
-	<!-- <h3>To calculate estimated quarter GPA:&#160;</h3>
-	<ol>
-		<li>Enter estimated grade (e.g. A, A-, B+) and number of credits for each course.</li>
-		<!-- <li>To calculate more courses, click "add course" until enough courses have been added.</li> -->
-		<!-- <li>The estimated Quarter GPA will appear automatically after the grade and credits of each class have been entered.&#160;</li> -->
-	<!-- </ol> -->
-	<!-- <div id="gpaIconArea">
-		<button aria-label="Add Additional Course" id="addButton" class="gpaIconText btn btn-default" onclick="addRow()">
-			<span id="gpaAddIcon" class="glyphicon glyphicon-plus"></span>Add course
-		</button>
-		<button aria-label="Remove Course" id="removeButton" class="gpaIconText btn btn-default" onclick="removeRow()">
-			<span id="gpaRemoveIcon" class="glyphicon glyphicon-minus"></span>Remove course
-		</button>
-	</div> -->
-	<h3>Current GPA</h3>
+	<h2>Current GPA</h2>
 	<table id="unweightedTable" class="tableWithBoarders">
 		<caption>
-			<h4>To calculate estimated quarter GPA:</h4>
-			<ol>
-				<li>Enter estimated grade (e.g. A, A-, B+) and number of credits for each course.</li>
-				<!-- <li>To calculate more courses, click "add course" until enough courses have been added.</li> -->
-				<li>The estimated Quarter GPA will appear automatically after the grade and credits of each class have been entered.</li>
-			</ol>
+			<h3>To calculate estimated quarter GPA:</h3>
+			<h6>
+				<ol>
+					<li>Enter estimated grade (e.g. A, A-, B+) and number of credits for each course.</li>
+					<!-- <li>To calculate more courses, click "add course" until enough courses have been added.</li> -->
+					<li>The estimated Quarter GPA will appear automatically after the grade and credits of each class have been entered.</li>
+				</ol>
+			</h6>
 		</caption>
 		<thead>
 			<tr>
@@ -57,24 +45,26 @@
 				<td><input type="text" id="credits5" class="credits" oninput="calculateGPA()" /><label for="credits5" class="sr-only">Course 5 Courses</label></td>
 			</tr>
 		</tbody>
-		<<tfoot>
+		<tfoot>
 			<tr>
 				<th>Unweighted GPA:</th>
 				<td colspan="2"><p id="unweightedGPA"> </p></td>
 			</tr>
 		</tfoot>
 	</table>
-
-	<h3>Cumulative GPA</h3>
+	<hr />
+	<h2>Cumulative GPA</h2>
 	<table id="cumulativeTable" class="tableWithBoarders">
 		<caption>
-			<h4>To calculate estimated cumulative GPA:</h4>
-			<ol>
-				<li>Enter current quarter grades and credits above.</li>
-				<li>Enter current cumulative GPA below as indicated on your program evaluation.</li>
-				<li>Enter credits attempted below (do not include current quarter credits).</li>
-				<li>The estimated GPA will appear automatically after the grade and credits of each class have been entered.</li>
-			</ol>
+			<h3>To calculate estimated cumulative GPA:</h3>
+			<h6>
+				<ol>
+					<li>Enter current quarter grades and credits above.</li>
+					<li>Enter current cumulative GPA below as indicated on your program evaluation.</li>
+					<li>Enter credits attempted below (do not include current quarter credits).</li>
+					<li>The estimated GPA will appear automatically after the grade and credits of each class have been entered.</li>
+				</ol>
+			</h6>
 		</caption>
 		<thead>
 			<tr>
