@@ -1,6 +1,6 @@
 <script>
 
-	var numRows = 3;
+	var numRows = 5;
 	var totalGrade;
 	var totalCredits;
 	var totalCumulativeGrade;
