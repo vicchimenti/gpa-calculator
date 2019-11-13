@@ -126,13 +126,9 @@
 			creditString = document.getElementById("credits" + i).value;
 			if (creditString.length < 4) {
 				classCredits = parseInt(creditString);
-				console.log("gradeString " + gradeString);
 				if (gradeString.length < 3) {
-					console.log("grade string");
 					for (j = 0; j < gradeChartTotal; j++) {
-						console.log("calculateGPA j for loop");
 						if (gradeString == gradeChart[j]) {
-							console.log("calculateGPA j for loop if");
 							totalCredits += classCredits;
 							totalGrade += (gpaChart[j] * classCredits);
 							validGrade = true;
