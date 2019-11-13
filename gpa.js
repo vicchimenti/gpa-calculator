@@ -102,17 +102,15 @@
 	gradeChart[26] = "f";
 	gpaChart[26] = 0;
 
+	/* Calculate the GPA entered by the client */
 	function calculateGPA() {
-		console.log("calculateGPA");
-
 		// Calculate total grade points and credits
 		totalGrade = 0;
 		totalCredits = 0;
 		var validGrade = false;
 
+		/* iterate over each row of courses to check for gpa entries by the client */
 		for (i = 1; i <= numRows; i++) {
-			console.log("calculateGPA for loop");
-
 			gradeString = document.getElementById("grade" + i).value;
 			creditString = document.getElementById("credits" + i).value;
 			if (creditString.length < 4) {
@@ -133,121 +131,97 @@
 			}
 
 
-			// style the table elements
+			/* style the table elements based on avlid client input*/
 			if (validGrade == true) {
-				console.log("validgrade true");
 				document.getElementById("grade" + i).style.borderColor = "rgb(108, 179, 63)";
 			}
 			else {
-				console.log("validgrade false");
 				document.getElementById("grade" + i).style.borderColor = "red";
 			}
 
+			/* style the table based on value of client input */
 			if (classCredits && classCredits < 0 || classCredits > 10) {
-				console.log("if classCredits && classCredits");
 				document.getElementById("credits" + i).style.borderColor = "red";
 			}
 			else if (!classCredits && creditString) {
-				console.log("else if classCredits && classCredits");
-
 				document.getElementById("credits" + i).style.borderColor = "red";
 			}
 			else {
-				console.log("else classCredits && classCredits");
-
 				document.getElementById("credits" + i).style.borderColor = "rgb(108, 179, 63)";
 			}
-
-			console.log("classCredits = " + classCredits);
 		}
-		console.log("grade points = " + totalGrade);
-		console.log("credits = " + totalCredits);
 
-		// Calculate GPA
+		/* Calculate the GPA */
 		GPA.unweighted = totalGrade / totalCredits;
 		GPA.unweighted = Math.round( 100 * GPA.unweighted );
 		GPA.unweighted = GPA.unweighted / 100;
-		console.log("GPA = " + GPA.unweighted);
 		var display1 = document.getElementById("unweightedGPA");
 
+		/* validate result */
 		if (GPA.unweighted) {
-			console.log("if GPA.unweighted");
 			display1.innerHTML = GPA.unweighted.toFixed(2);
-			// display1.innerHTML = "Unweighted GPA: " + GPA.unweighted.toFixed(2);
 		}
-		// else {
-		// 	console.log("else GPA.unweighted");
-		//
-		// 	display1.innerHTML = "Unweighted GPA:";
-		// }
 
-		//Calculate cumulative GPA
+		/* Calculate cumulative GPA based on client input */
 		cumulativeGradeString = document.getElementById("cumulativeGrade").value;
 		cumulativeCreditString = document.getElementById("cumulativeCredits").value;
 		totalCumulativeGrade = parseFloat(cumulativeGradeString);
-		console.log("totalCumulativeGrade: " + totalCumulativeGrade);
-
 		totalCumulativeCredits = parseInt(cumulativeCreditString);
-		console.log("totalCumulativeCredits: " + totalCumulativeCredits);
 
+		/* style cumulative table based on results */
 		if (totalCumulativeGrade < 0) {
-			console.log("if totalCumulativeGrade");
-
 			document.getElementById("cumulativeGrade").style.borderColor = "red";
 		}
 		else {
-			console.log("else totalCumulativeGrade");
-
 			document.getElementById("cumulativeGrade").style.borderColor = "rgb(153, 134, 117)";
 		}
 
+		/* combine current quarter gpa with cumulative */
 		GPA.cumulative = ( (totalCumulativeGrade * totalCumulativeCredits) + totalGrade) / (totalCumulativeCredits + totalCredits);
 		GPA.cumulative = Math.round( 100 * GPA.cumulative );
 		GPA.cumulative = GPA.cumulative / 100;
 		var display2 = document.getElementById("cumulativeGPA");
 
+		/* validate combined results */
 		if (GPA.cumulative && totalCumulativeGrade >= 0) {
-			console.log("if cumulative and totalCumulativeGrade");
-			// display2.innerHTML = "Cumulative GPA: " + GPA.cumulative.toFixed(2);
 			display2.innerHTML = GPA.cumulative.toFixed(2);
 		}
-		// else {
-		// 	console.log("if cumulative and totalCumulativeGrade else");
-		//
-		// 	display2.innerHTML = "Cumulative GPA:";
-		// }
 	}
 
-	function addRow() {
-		console.log("add row");
-		var table = document.getElementById("unweightedTable");
-		{
-			var row = table.insertRow(r);
-			var cell1 = row.insertCell(0);
-			var cell2 = row.insertCell(1);
-			var cell3 = row.insertCell(2);
-			cell1.outerHTML = "<th>Course " + r.toString() + "</th>";
-			cell2.innerHTML = "<input id=\"grade" + (r).toString() + "\" type=\"text\" oninput=\"calculateGPA()\" id=\"Course" + r.toString() + "letterGrade\" /><label for=\"Course" +  r.toString() + "letterGrade\" class=\"sr-only\">Course " + r.toString() + " Letter Grade</label>";
-			cell3.innerHTML = "<input id=\"credits" + (r).toString() + "\" type=\"text\" oninput=\"calculateGPA()\" id=\"Course" + r.toString() + "credits\"/><label for=\"Course" +  r.toString() + "letterGrade\" class=\"sr-only\">Course " + r.toString() + " Credits</label>";
-		}
-		r++;
-		if (r > 1) {
-			$("#removeButton").removeClass("disabled");
-		}
-		console.log("add row r: " + r);
-	}
 
-	function removeRow() {
-		console.log("remove row");
-		numRows--;
-		if(r > 1){
-			document.getElementById("unweightedTable").deleteRow(r);
-		}else{
-			numRows++;
-		}
-		if (numRows == 2) {
-			$("#removeButton").addClass("disabled");
-		}
-		console.log("remove row numRows: " + numRows);
-	}
+
+	/* add and delete row functions currently disable */
+	/* and they weren't working anyway and need to be degugged before pushing to production */
+	// function addRow() {
+	// 	console.log("add row");
+	// 	var table = document.getElementById("unweightedTable");
+	// 	{
+	// 		var row = table.insertRow(r);
+	// 		var cell1 = row.insertCell(0);
+	// 		var cell2 = row.insertCell(1);
+	// 		var cell3 = row.insertCell(2);
+	// 		cell1.outerHTML = "<th>Course " + r.toString() + "</th>";
+	// 		cell2.innerHTML = "<input id=\"grade" + (r).toString() + "\" type=\"text\" oninput=\"calculateGPA()\" id=\"Course" + r.toString() + "letterGrade\" /><label for=\"Course" +  r.toString() + "letterGrade\" class=\"sr-only\">Course " + r.toString() + " Letter Grade</label>";
+	// 		cell3.innerHTML = "<input id=\"credits" + (r).toString() + "\" type=\"text\" oninput=\"calculateGPA()\" id=\"Course" + r.toString() + "credits\"/><label for=\"Course" +  r.toString() + "letterGrade\" class=\"sr-only\">Course " + r.toString() + " Credits</label>";
+	// 	}
+	// 	r++;
+	// 	if (r > 1) {
+	// 		$("#removeButton").removeClass("disabled");
+	// 	}
+	// 	console.log("add row r: " + r);
+	// }
+	//
+	// function removeRow() {
+	// 	console.log("remove row");
+	// 	numRows--;
+	// 	if(r > 1){
+	// 		document.getElementById("unweightedTable").deleteRow(r);
+	// 	}else{
+	// 		numRows++;
+	// 	}
+	// 	if (numRows == 2) {
+	// 		$("#removeButton").addClass("disabled");
+	// 	}
+	// 	console.log("remove row numRows: " + numRows);
+	// }
 </script>
