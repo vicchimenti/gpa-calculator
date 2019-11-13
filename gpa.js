@@ -1,5 +1,15 @@
+/*****
+*	Victor Chimenti
+*	MSCS 2020
+*	gpa.js
+*	refactored original code
+*	Last Modified 20191113
+*
+*
+*/
+
 <script>
-	// declare script variables
+	/* declare script variables */
 	var numRows = 5;
 	var totalGrade;
 	var totalCredits;
@@ -15,14 +25,15 @@
 		cumulative: 0
 	};
 
-	// Define grades and their GPA equivalent
+	/* Define grades and their GPA equivalent */
 	var gradeChart = {};
 	var gpaChart = {};
 
+	/* establish known size of list */
 	var gradeChartTotal = 27;
 	var gpaChartTotal = 27;
 
-	// Uppercase
+	/* Uppercase */
 	gradeChart[1] = "A";
 	gpaChart[1] = 4;
 
@@ -62,7 +73,7 @@
 	gradeChart[25] = "F";
 	gpaChart[25] = 0;
 
-	// Lowercase
+	/* Lowercase */
 	gradeChart[13]  = "a";
 	gpaChart[13] = 4;
 
@@ -187,41 +198,4 @@
 			display2.innerHTML = GPA.cumulative.toFixed(2);
 		}
 	}
-
-
-
-	/* add and delete row functions currently disable */
-	/* and they weren't working anyway and need to be degugged before pushing to production */
-	// function addRow() {
-	// 	console.log("add row");
-	// 	var table = document.getElementById("unweightedTable");
-	// 	{
-	// 		var row = table.insertRow(r);
-	// 		var cell1 = row.insertCell(0);
-	// 		var cell2 = row.insertCell(1);
-	// 		var cell3 = row.insertCell(2);
-	// 		cell1.outerHTML = "<th>Course " + r.toString() + "</th>";
-	// 		cell2.innerHTML = "<input id=\"grade" + (r).toString() + "\" type=\"text\" oninput=\"calculateGPA()\" id=\"Course" + r.toString() + "letterGrade\" /><label for=\"Course" +  r.toString() + "letterGrade\" class=\"sr-only\">Course " + r.toString() + " Letter Grade</label>";
-	// 		cell3.innerHTML = "<input id=\"credits" + (r).toString() + "\" type=\"text\" oninput=\"calculateGPA()\" id=\"Course" + r.toString() + "credits\"/><label for=\"Course" +  r.toString() + "letterGrade\" class=\"sr-only\">Course " + r.toString() + " Credits</label>";
-	// 	}
-	// 	r++;
-	// 	if (r > 1) {
-	// 		$("#removeButton").removeClass("disabled");
-	// 	}
-	// 	console.log("add row r: " + r);
-	// }
-	//
-	// function removeRow() {
-	// 	console.log("remove row");
-	// 	numRows--;
-	// 	if(r > 1){
-	// 		document.getElementById("unweightedTable").deleteRow(r);
-	// 	}else{
-	// 		numRows++;
-	// 	}
-	// 	if (numRows == 2) {
-	// 		$("#removeButton").addClass("disabled");
-	// 	}
-	// 	console.log("remove row numRows: " + numRows);
-	// }
 </script>
