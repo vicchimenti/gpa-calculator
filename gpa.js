@@ -24,6 +24,7 @@
 		cumulative: 0
 	};
 
+	// convert these two arrays to a list of related objects
 	/* Define grades and their GPA equivalent */
 	var gradeChart = [];
 	var gpaChart = [];
