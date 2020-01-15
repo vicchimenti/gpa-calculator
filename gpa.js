@@ -135,7 +135,7 @@
 
 
 			/* style the table elements based on avlid client input*/
-			if (validGrade == true) {
+			if (validGrade == true && !isNaN(gradeString)) {
 				document.getElementById("grade" + i).style.borderColor = "rgb(108, 179, 63)";
 			} else {
 				document.getElementById("grade" + i).style.borderColor = "red";
