@@ -7,32 +7,32 @@
 */
 
 <script>
-	/* declare script variables */
-	var numRows = 5;
-	var i = 0;
-	var totalGrade;
-	var totalCredits;
-	var totalCumulativeGrade;
-	var totalCumulativeCredits;
-	var classCredits;
-	var gradeString;
-	var creditString;
-	var cumulativeGradeString;
-	var cumulativeCreditString;
-	var GPA = {
+	/* declare script letiables */
+	let numRows = 5;
+	let i = 0;
+	let totalGrade;
+	let totalCredits;
+	let totalCumulativeGrade;
+	let totalCumulativeCredits;
+	let classCredits;
+	let gradeString;
+	let creditString;
+	let cumulativeGradeString;
+	let cumulativeCreditString;
+	let GPA = {
 		unweighted: 0,
 		cumulative: 0
 	};
 
 	// convert these two arrays to a list of related objects
 	/* Define grades and their GPA equivalent */
-	var letterGrade = ['A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'C-', 'D+', 'D', 'D-', 'E', 'F'];
-	var gradeValue = [4, 3.7, 3.3, 3, 2.7, 2.3, 2, 1.7, 1.3, 1, 0.7, 0, 0];
+	let letterGrade = ['A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'C-', 'D+', 'D', 'D-', 'E', 'F'];
+	let gradeValue = [4, 3.7, 3.3, 3, 2.7, 2.3, 2, 1.7, 1.3, 1, 0.7, 0, 0];
 
 
 	/* establish known size of list */
-	var gradeChartTotal = 27;
-	// var gpaChartTotal = 27;
+	let gradeChartTotal = 27;
+	// let gpaChartTotal = 27;
 
 	// /* Uppercase */
 	// gradeChart[26] = "A";
@@ -119,7 +119,7 @@
 		// Calculate total grade points and credits
 		totalGrade = 0;
 		totalCredits = 0;
-		var validGrade = false;
+		let validGrade = false;
 
 		/* iterate over each row of courses to check for gpa entries by the client */
 		for (i = 1; i <= numRows; i++) {
@@ -128,7 +128,7 @@
 			if (creditString.length < 2) {
 				classCredits = parseInt(creditString);
 				if (gradeString.length < 3) {
-					for (var j = 0; j < gradeChartTotal; j++) {
+					for (let j = 0; j < gradeChartTotal; j++) {
 						if (gradeString == gradeChart[j]) {
 							totalCredits += classCredits;
 							totalGrade += (gpaChart[j] * classCredits);
@@ -158,7 +158,7 @@
 		GPA.unweighted = totalGrade / totalCredits;
 		GPA.unweighted = Math.round( 100 * GPA.unweighted );
 		GPA.unweighted = GPA.unweighted / 100;
-		var display1 = document.getElementById("unweightedGPA");
+		let display1 = document.getElementById("unweightedGPA");
 
 		/* validate result */
 		if (GPA.unweighted) {
@@ -183,7 +183,7 @@
 		GPA.cumulative = ( (totalCumulativeGrade * totalCumulativeCredits) + totalGrade) / (totalCumulativeCredits + totalCredits);
 		GPA.cumulative = Math.round( 100 * GPA.cumulative );
 		GPA.cumulative = GPA.cumulative / 100;
-		var display2 = document.getElementById("cumulativeGPA");
+		let display2 = document.getElementById("cumulativeGPA");
 
 		/* validate combined results */
 		if (GPA.cumulative && totalCumulativeGrade >= 0) {
