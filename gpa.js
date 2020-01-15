@@ -50,14 +50,14 @@
 		*	i is set to one to coordinate with current html ids
 		*/
 		for (i = 1; i <= numRows; i++) {
-			let gradeRaw = document.getElementById("grade" + i).value;
-			gradeString = gradeRaw.toUpperCase();
+			gradeString = document.getElementById("grade" + i).value.toUpperCase();
+			// gradeString = gradeRaw.toUpperCase();
 			creditString = document.getElementById("credits" + i).value;
 			if (creditString.length < 2) {
 				classCredits = parseInt(creditString);
 				if (gradeString.length < 3) {
 					for (let grade in gradeChart) {
-						if (gradeString == gradeChart[grade]) {
+						if (gradeString == grade) {
 							var score = gradeChart[grade];
 							totalCredits += classCredits;
 							totalGrade += (score * classCredits);
