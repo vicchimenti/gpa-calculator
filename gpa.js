@@ -120,7 +120,7 @@
 		for (i = 1; i <= numRows; i++) {
 			gradeString = document.getElementById("grade" + i).value;
 			creditString = document.getElementById("credits" + i).value;
-			if (creditString.length < 4) {
+			if (creditString.length < 2) {
 				classCredits = parseInt(creditString);
 				if (gradeString.length < 3) {
 					for (j = 0; j < gradeChartTotal; j++) {
@@ -149,7 +149,7 @@
 			}
 		}
 
-		/* Calculate the GPA */
+		/* Calculate the Quarter GPA */
 		GPA.unweighted = totalGrade / totalCredits;
 		GPA.unweighted = Math.round( 100 * GPA.unweighted );
 		GPA.unweighted = GPA.unweighted / 100;
