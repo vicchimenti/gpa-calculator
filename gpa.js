@@ -24,10 +24,13 @@
 		cumulative: 0
 	};
 
-	// convert these two arrays to a list of related objects
+
 	/* Define grades and their GPA equivalent */
-	let letterGrade = ['A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'C-', 'D+', 'D', 'D-', 'E', 'F'];
-	let gradeValue = [4, 3.7, 3.3, 3, 2.7, 2.3, 2, 1.7, 1.3, 1, 0.7, 0, 0];
+	let gradeKeys = ['A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'C-', 'D+', 'D', 'D-', 'E', 'F'];
+	let gradeValues = [4, 3.7, 3.3, 3, 2.7, 2.3, 2, 1.7, 1.3, 1, 0.7, 0, 0];
+	let gradeChart = {};
+	gradeKeys.forEach((key, index) => gradeChart[key] = gradeValues[index]);
+
 
 
 	/* establish known size of list */
