@@ -9,7 +9,7 @@
 <script>
 	/* declare script letiables */
 	let numRows = 5;
-	let i = 0;
+	var i;
 	let totalGrade;
 	let totalCredits;
 	let totalCumulativeGrade;
@@ -34,28 +34,32 @@
 
 
 	/* establish known size of list */
-	let gradeChartTotal = 27;
+	// let gradeChartTotal = 27;
 	// let gpaChartTotal = 27;
 
 
 	/* Calculate the GPA entered by the client */
 	function calculateGPA() {
 		// Calculate total grade points and credits
+		let validGrade = false;
 		totalGrade = 0;
 		totalCredits = 0;
-		let validGrade = false;
 
-		/* iterate over each row of courses to check for gpa entries by the client */
+		/*
+		*	iterate over each row of courses to check for gpa entries by the client
+		*	i is set to one to coordinate with current html ids 
+		*/
 		for (i = 1; i <= numRows; i++) {
-			gradeString = document.getElementById("grade" + i).value;
+			let gradeRaw = document.getElementById("grade" + i).value;
+			gradeString = gradeRaw.toUpperCase();
 			creditString = document.getElementById("credits" + i).value;
 			if (creditString.length < 2) {
 				classCredits = parseInt(creditString);
 				if (gradeString.length < 3) {
-					for (let j = 0; j < gradeChartTotal; j++) {
-						if (gradeString == gradeChart[j]) {
+					for (let j = 0; j < gradeKeys.length; j++) {
+						if (gradeString == gradeKeys[j]) {
 							totalCredits += classCredits;
-							totalGrade += (gpaChart[j] * classCredits);
+							totalGrade += (gradeValues[j] * classCredits);
 							validGrade = true;
 						}
 					}
