@@ -29,12 +29,12 @@
 	var gpaChart = [];
 
 	/* establish known size of list */
-	// var gradeChartTotal = 27;
+	var gradeChartTotal = 27;
 	// var gpaChartTotal = 27;
 
 	/* Uppercase */
-	gradeChart[0] = "A";
-	gpaChart[0] = 4;
+	gradeChart[26] = "A";
+	gpaChart[26] = 4;
 
 	gradeChart[1] = "A-";
 	gpaChart[1] = 3.7;
@@ -120,13 +120,13 @@
 		var validGrade = false;
 
 		/* iterate over each row of courses to check for gpa entries by the client */
-		for (i = 0; i <= numRows; i++) {
+		for (i = 1; i <= numRows; i++) {
 			gradeString = document.getElementById("grade" + i).value;
 			creditString = document.getElementById("credits" + i).value;
 			if (creditString.length < 2) {
 				classCredits = parseInt(creditString);
 				if (gradeString.length < 3) {
-					for (var j = 0; j < gradeChart.length; j++) {
+					for (var j = 0; j < gradeChartTotal; j++) {
 						if (gradeString == gradeChart[j]) {
 							totalCredits += classCredits;
 							totalGrade += (gpaChart[j] * classCredits);
