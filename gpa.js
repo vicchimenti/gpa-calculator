@@ -1,11 +1,7 @@
-/*****
-*	Victor Chimenti
-*	MSCS 2020
-*	gpa.js
-*	refactored original code
-*	Last Modified 20191113
-*
-*
+/**
+*	@file gpa.js
+*	@author Victor Chimenti, MSCS 2020
+*	@see https://www.seattleu.edu/premajor/gpa-calculator/
 */
 
 <script>
@@ -141,20 +137,15 @@
 			/* style the table elements based on avlid client input*/
 			if (validGrade == true) {
 				document.getElementById("grade" + i).style.borderColor = "rgb(108, 179, 63)";
-			}
-			else {
+			} else {
 				document.getElementById("grade" + i).style.borderColor = "red";
 			}
 
 			/* style the table based on value of client input */
-			if (classCredits && classCredits < 0 || classCredits > 10) {
-				document.getElementById("credits" + i).style.borderColor = "red";
-			}
-			else if (!classCredits && creditString) {
-				document.getElementById("credits" + i).style.borderColor = "red";
-			}
-			else {
+			if (classCredits > 0 && classCredits < 10) {
 				document.getElementById("credits" + i).style.borderColor = "rgb(108, 179, 63)";
+			} else {
+				document.getElementById("credits" + i).style.borderColor = "red";
 			}
 		}
 
