@@ -32,12 +32,6 @@
 	gradeKeys.forEach((key, index) => gradeChart[key] = gradeValues[index]);
 
 
-
-	/* establish known size of list */
-	// let gradeChartTotal = 27;
-	// let gpaChartTotal = 27;
-
-
 	/* Calculate the GPA entered by the client */
 	function calculateGPA() {
 		// Calculate total grade points and credits
