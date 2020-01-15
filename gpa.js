@@ -47,7 +47,7 @@
 
 		/*
 		*	iterate over each row of courses to check for gpa entries by the client
-		*	i is set to one to coordinate with current html ids 
+		*	i is set to one to coordinate with current html ids
 		*/
 		for (i = 1; i <= numRows; i++) {
 			let gradeRaw = document.getElementById("grade" + i).value;
@@ -56,10 +56,11 @@
 			if (creditString.length < 2) {
 				classCredits = parseInt(creditString);
 				if (gradeString.length < 3) {
-					for (let j = 0; j < gradeKeys.length; j++) {
-						if (gradeString == gradeKeys[j]) {
+					for (let grade in gradeChart) {
+						if (gradeString == gradeChart[grade]) {
+							var score = gradeChart[grade];
 							totalCredits += classCredits;
-							totalGrade += (gradeValues[j] * classCredits);
+							totalGrade += (score * classCredits);
 							validGrade = true;
 						}
 					}
