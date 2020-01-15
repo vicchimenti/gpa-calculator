@@ -26,92 +26,93 @@
 
 	// convert these two arrays to a list of related objects
 	/* Define grades and their GPA equivalent */
-	var gradeChart = [];
-	var gpaChart = [];
+	var letterGrade = ['A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'C-', 'D+', 'D', 'D-', 'E', 'F'];
+	var gradeValue = [4, 3.7, 3.3, 3, 2.7, 2.3, 2, 1.7, 1.3, 1, 0.7, 0, 0];
+
 
 	/* establish known size of list */
 	var gradeChartTotal = 27;
 	// var gpaChartTotal = 27;
 
-	/* Uppercase */
-	gradeChart[26] = "A";
-	gpaChart[26] = 4;
-
-	gradeChart[1] = "A-";
-	gpaChart[1] = 3.7;
-
-	gradeChart[2] = "B+";
-	gpaChart[2] = 3.3;
-
-	gradeChart[3] = "B"
-	gpaChart[3] = 3;
-
-	gradeChart[4] = "B-";
-	gpaChart[4] = 2.7;
-
-	gradeChart[5] = "C+";
-	gpaChart[5] = 2.3;
-
-	gradeChart[6] = "C";
-	gpaChart[6] = 2;
-
-	gradeChart[7] = "C-";
-	gpaChart[7] = 1.7;
-
-	gradeChart[8] = "D+";
-	gpaChart[8] = 1.3;
-
-	gradeChart[9] = "D";
-	gpaChart[9] = 1;
-
-	gradeChart[10] = "D-";
-	gpaChart[10] = 0.7;
-
-	gradeChart[11] = "E";
-	gpaChart[11] = 0;
-
-	gradeChart[12] = "F";
-	gpaChart[12] = 0;
-
-	/* Lowercase */
-	gradeChart[13]  = "a";
-	gpaChart[13] = 4;
-
-	gradeChart[14] = "a-";
-	gpaChart[14] = 3.7;
-
-	gradeChart[15] = "b+";
-	gpaChart[15] = 3.3;
-
-	gradeChart[16] = "b";
-	gpaChart[16] = 3;
-
-	gradeChart[17] = "b-";
-	gpaChart[17] = 2.7;
-
-	gradeChart[18] = "c+";
-	gpaChart[18] = 2.3;
-
-	gradeChart[19] = "c";
-	gpaChart[19] = 2;
-
-	gradeChart[20] = "c-";
-	gpaChart[20] = 1.7;
-
-	gradeChart[21] = "d+";
-	gpaChart[21] = 1.3;
-
-	gradeChart[22] = "d";
-	gpaChart[22] = 1;
-
-	gradeChart[23] = "d-";
-	gpaChart[23] = 0.7;
-
-	gradeChart[24] = "e";
-	gpaChart[24] = 0;
-
-	gradeChart[25] = "f";
-	gpaChart[25] = 0;
+	// /* Uppercase */
+	// gradeChart[26] = "A";
+	// gpaChart[26] = 4;
+	//
+	// gradeChart[1] = "A-";
+	// gpaChart[1] = 3.7;
+	//
+	// gradeChart[2] = "B+";
+	// gpaChart[2] = 3.3;
+	//
+	// gradeChart[3] = "B"
+	// gpaChart[3] = 3;
+	//
+	// gradeChart[4] = "B-";
+	// gpaChart[4] = 2.7;
+	//
+	// gradeChart[5] = "C+";
+	// gpaChart[5] = 2.3;
+	//
+	// gradeChart[6] = "C";
+	// gpaChart[6] = 2;
+	//
+	// gradeChart[7] = "C-";
+	// gpaChart[7] = 1.7;
+	//
+	// gradeChart[8] = "D+";
+	// gpaChart[8] = 1.3;
+	//
+	// gradeChart[9] = "D";
+	// gpaChart[9] = 1;
+	//
+	// gradeChart[10] = "D-";
+	// gpaChart[10] = 0.7;
+	//
+	// gradeChart[11] = "E";
+	// gpaChart[11] = 0;
+	//
+	// gradeChart[12] = "F";
+	// gpaChart[12] = 0;
+	//
+	// /* Lowercase */
+	// gradeChart[13]  = "a";
+	// gpaChart[13] = 4;
+	//
+	// gradeChart[14] = "a-";
+	// gpaChart[14] = 3.7;
+	//
+	// gradeChart[15] = "b+";
+	// gpaChart[15] = 3.3;
+	//
+	// gradeChart[16] = "b";
+	// gpaChart[16] = 3;
+	//
+	// gradeChart[17] = "b-";
+	// gpaChart[17] = 2.7;
+	//
+	// gradeChart[18] = "c+";
+	// gpaChart[18] = 2.3;
+	//
+	// gradeChart[19] = "c";
+	// gpaChart[19] = 2;
+	//
+	// gradeChart[20] = "c-";
+	// gpaChart[20] = 1.7;
+	//
+	// gradeChart[21] = "d+";
+	// gpaChart[21] = 1.3;
+	//
+	// gradeChart[22] = "d";
+	// gpaChart[22] = 1;
+	//
+	// gradeChart[23] = "d-";
+	// gpaChart[23] = 0.7;
+	//
+	// gradeChart[24] = "e";
+	// gpaChart[24] = 0;
+	//
+	// gradeChart[25] = "f";
+	// gpaChart[25] = 0;
 
 	/* Calculate the GPA entered by the client */
 	function calculateGPA() {
