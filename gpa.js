@@ -50,7 +50,7 @@
 		totalGrade = 0;
 		totalCredits = 0;
 
-		/*
+		/**
 		*	iterate over each row of courses to check for gpa entries by the client
 		*	i is set to one to coordinate with current html div ids
 		*/
@@ -129,4 +129,28 @@
 			display2.innerHTML = GPA.cumulative.toFixed(2);
 		}
 	}
+
+
+	/**
+	* addCourse function adds combined row to the quarter gpa table
+	* the table is accessed by its html div id unweightedTable
+	* the user can continue to add courses as needed
+	* the global numRows variable is incremented each time
+	*/
+	function addCourse() {
+		++numRows;
+		$('#unweightedTable > tbody:last-child').append(`'<tr>
+			<th>'"Course " + numRows + '</th>
+			<td>...</td>
+			<td>...</td>
+			</tr>'`);
+	  var table = document.getElementById("unweightedTable");
+	  var row = table.insertRow(-1);
+	  var cell1 = row.insertCell(0);
+	  var cell2 = row.insertCell(1);
+	  cell1.innerHTML = "NEW CELL1";
+	  cell2.innerHTML = "NEW CELL2";
+	}
+
+
 </script>
