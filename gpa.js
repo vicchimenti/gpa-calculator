@@ -143,7 +143,7 @@
 		++numRows;
 		console.log("numRows after: " + numRows);
 		$('#unweightedTable tbody').append(`'<tr>
-			<th>'"Course " + numRows + '</th>
+			<th>Course " + numRows + "</th>
 			<td><input type="text" id="grade'+numRows+'" class="grade" oninput="calculateGPA()" />
 			<label for="grade'+numRows+'" class="sr-only">'"Course "+numRows+" Letter Grade'</label></td>
 			<td><input type="text" id="credits'+numRows+'" class="credits" oninput="calculateGPA()" />
