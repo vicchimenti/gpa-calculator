@@ -52,7 +52,7 @@
 
 		/*
 		*	iterate over each row of courses to check for gpa entries by the client
-		*	i is set to one to coordinate with current html ids
+		*	i is set to one to coordinate with current html div ids
 		*/
 		for (let i = 1; i <= numRows; i++) {
 			gradeString = document.getElementById("grade" + i).value.toUpperCase();
@@ -72,7 +72,6 @@
 				}
 			}
 
-
 			/* style the table elements based on avlid client input*/
 			if (validGrade == true && isNaN(gradeString)) {
 				document.getElementById("grade" + i).style.borderColor = "rgb(108, 179, 63)";
@@ -88,22 +87,26 @@
 			}
 		}
 
+
 		/* Calculate the Quarter GPA */
 		GPA.unweighted = totalGrade / totalCredits;
 		GPA.unweighted = Math.round( 100 * GPA.unweighted );
 		GPA.unweighted = GPA.unweighted / 100;
 		let display1 = document.getElementById("unweightedGPA");
 
+
 		/* validate result */
 		if (GPA.unweighted) {
 			display1.innerHTML = GPA.unweighted.toFixed(2);
 		}
+
 
 		/* Calculate cumulative GPA based on client input */
 		cumulativeGradeString = document.getElementById("cumulativeGrade").value;
 		cumulativeCreditString = document.getElementById("cumulativeCredits").value;
 		totalCumulativeGrade = parseFloat(cumulativeGradeString);
 		totalCumulativeCredits = parseInt(cumulativeCreditString);
+
 
 		/* style cumulative table based on results */
 		if (totalCumulativeGrade < 0) {
@@ -113,11 +116,13 @@
 			document.getElementById("cumulativeGrade").style.borderColor = "rgb(153, 134, 117)";
 		}
 
+
 		/* combine current quarter gpa with cumulative */
 		GPA.cumulative = ( (totalCumulativeGrade * totalCumulativeCredits) + totalGrade) / (totalCumulativeCredits + totalCredits);
 		GPA.cumulative = Math.round( 100 * GPA.cumulative );
 		GPA.cumulative = GPA.cumulative / 100;
 		let display2 = document.getElementById("cumulativeGPA");
+
 
 		/* validate combined results */
 		if (GPA.cumulative && totalCumulativeGrade >= 0) {
