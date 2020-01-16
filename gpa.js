@@ -8,9 +8,8 @@
 */
 
 <script>
-	/* declare script letiables */
+	/* declare script variables */
 	let numRows = 5;
-	var i;
 	let totalGrade;
 	let totalCredits;
 	let totalCumulativeGrade;
@@ -44,7 +43,7 @@
 		*	iterate over each row of courses to check for gpa entries by the client
 		*	i is set to one to coordinate with current html ids
 		*/
-		for (i = 1; i <= numRows; i++) {
+		for (let i = 1; i <= numRows; i++) {
 			gradeString = document.getElementById("grade" + i).value.toUpperCase();
 			// gradeString = gradeRaw.toUpperCase();
 			creditString = document.getElementById("credits" + i).value;
