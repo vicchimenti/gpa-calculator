@@ -8,7 +8,7 @@
 				<ol>
 					<li>Enter estimated grade (e.g. A, A-, B+) and number of credits for each course.</li>
 					<li>The estimated Quarter GPA will appear automatically after the grade and credits of each class have been entered.</li>
-					<li>If you need to get the current quarter GPA for more than 5 courses just click the button to add another course.<button type="button" name="add a course" onclick="addCourse()">Add a Course</button></li>
+					<li role="button" aria-pressed="false" name="add a course" id="addRowBTN" onclick="addCourse()">If you need to get the current quarter GPA for more than 5 courses just click to add another course.</li>
 				</ol>
 			</h6>
 		</caption>
@@ -90,3 +90,5 @@
 		</tfoot>
 	</table>
 </div>
+
+<!- <button type="button" name="add a course" id="addRowBTN" onclick="addCourse()">Add a Course</button> ->
