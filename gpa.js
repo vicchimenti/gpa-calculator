@@ -54,6 +54,7 @@
 		*	iterate over each row of courses to check for gpa entries by the client
 		*	i is set to one to coordinate with current html div ids
 		*/
+		console.log("numRows calculateGPA: " + numRows);
 		for (let i = 1; i <= numRows; i++) {
 			gradeString = document.getElementById("grade" + i).value.toUpperCase();
 			// gradeString = gradeRaw.toUpperCase();
@@ -138,7 +139,9 @@
 	* the global numRows variable is incremented each time
 	*/
 	function addCourse() {
+		console.log("numRows before: " + numRows);
 		++numRows;
+		console.log("numRows after: " + numRows);
 		$('#unweightedTable > tbody:last-child').append(`'<tr>
 			<th>'"Course " + numRows + '</th>
 			<td><input type="text" id="grade'+numRows+'" class="grade" oninput="calculateGPA()" />
