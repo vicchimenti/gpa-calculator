@@ -142,7 +142,7 @@
 		console.log("numRows before: " + numRows);
 		++numRows;
 		console.log("numRows after: " + numRows);
-		$('#unweightedTable tbody:last-child').on('click').append(`'<tr>
+		$('#unweightedTable tbody:last-child').append(`'<tr>
 			<th>'"Course " + numRows + '</th>
 			<td><input type="text" id="grade'+numRows+'" class="grade" oninput="calculateGPA()" />
 			<label for="grade'+numRows+'" class="sr-only">'"Course "+numRows+" Letter Grade'</label></td>
