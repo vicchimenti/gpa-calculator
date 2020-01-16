@@ -9,7 +9,6 @@
 
 <script>
 	/* declare script variables */
-	let numRows = 5;
 	let totalGrade;
 	let totalCredits;
 	let totalCumulativeGrade;
@@ -25,11 +24,23 @@
 	};
 
 
-	/* Define grades and their GPA equivalent */
+	/**
+	* Define grades and their GPA equivalent
+	* the gradeChart object maps the gradeKey and gradeValue arrays together
+	* the gradeChart is used to assign a numeric value to the
+	* letter grade entered by the user
+	*/
 	let gradeKeys = ['A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'C-', 'D+', 'D', 'D-', 'E', 'F'];
 	let gradeValues = [4, 3.7, 3.3, 3, 2.7, 2.3, 2, 1.7, 1.3, 1, 0.7, 0, 0];
 	let gradeChart = {};
 	gradeKeys.forEach((key, index) => gradeChart[key] = gradeValues[index]);
+
+
+	/**
+	* table begins with rows for 5 classes and grades
+	* if the user adds a row, then this number will be incremented
+	*/
+	let numRows = 5;
 
 
 	/* Calculate the GPA entered by the client */
