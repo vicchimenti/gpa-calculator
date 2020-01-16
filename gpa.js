@@ -4,6 +4,7 @@
 *	@see https://www.seattleu.edu/premajor/gpa-calculator/
 *
 *	refactored from legacy gpa calculator
+*	this feature is mirrored to multiple pages
 */
 
 <script>
