@@ -142,17 +142,17 @@
 		console.log("numRows before: " + numRows);
 		++numRows;
 		console.log("numRows after: " + numRows);
-		let headingText = 'Course'+numRows'';
+		let headingText = 'Course'+numRows+'';
 		console.log("headingText: " + headingText);
-		let gradeId = 'grade'+numRows'';
+		let gradeId = 'grade'+numRows+'';
 		console.log("gradeId: " + gradeId);
-		let creditsId = 'credits'+numRows'';
+		let creditsId = 'credits'+numRows+'';
 		console.log("creditsId: " + creditsId);
 
 
 
 		$('#unweightedTable tbody').append(`'<tr>
-			<th>'`+headingText+`'</th>
+			<th>`+headingText+`</th>
 			<td><input type="text" id="grade'+numRows+'" class="grade" oninput="calculateGPA()" />
 			<label for="grade'+numRows+'" class="sr-only">'"Course "+numRows+" Letter Grade'</label></td>
 			<td><input type="text" id="credits'+numRows+'" class="credits" oninput="calculateGPA()" />
