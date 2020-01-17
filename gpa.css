@@ -22,16 +22,20 @@ table caption ol li span[role="button"] {
   padding: 0.4em 0.7em;
   border: 1px solid;
   border-radius: 5px;
-  box-shadow: 0 1px 2px hsl(190, 90%, 32%);
-  color: #fff;
-  text-shadow: 0 -1px 1px hsl(190, 90%, 32%);
+  /* box-shadow: 0 1px 2px hsl(190, 90%, 32%); */
+  color: #f7f7f7;
   background-color: #088099;
+  border-color: #f7f7f7;
+;
+
+  /* text-shadow: 0 -1px 1px hsl(190, 90%, 32%); */
   /* background-image: linear-gradient(to bottom, hsl(216, 82%, 53%), hsl(216, 82%, 47%)); */
 }
 
 table caption ol li span[role="button"]:hover {
-  border-color: #088099;
-  background-color: #088099;
+    color: #AA0000;
+    border-color: #088099;
+    background-color: #f7f7f7;
   /* background-image: linear-gradient(to bottom, hsl(216, 82%, 33%), hsl(216, 82%, 27%)); */
   cursor: default;
 }
@@ -57,44 +61,60 @@ table caption ol li span[role="button"]:focus::before {
 }
 
 table caption ol li span[role="button"]:active {
-  border-color: hsl(213, 71%, 49%);
-  background-color: hsl(216, 82%, 31%);
-  background-image: linear-gradient(to bottom, hsl(216, 82%, 53%), hsl(216, 82%, 47%));
-  box-shadow: inset 0 3px 5px 1px hsl(216, 82%, 30%);
+    color: #f7f7f7;
+    background-color: #088099;
+    border-color: #f7f7f7;
+  /* background-image: linear-gradient(to bottom, hsl(216, 82%, 53%), hsl(216, 82%, 47%)); */
+  /* box-shadow: inset 0 3px 5px 1px hsl(216, 82%, 30%); */
 }
 
 table caption ol li span[role="button"][aria-pressed] {
-  border-color: hsl(261, 71%, 49%);
+    color: #f7f7f7;
+    background-color: #088099;
+    border-color: #f7f7f7;
+  /* border-color: hsl(261, 71%, 49%);
   box-shadow: 0 1px 2px hsl(261, 27%, 55%);
   text-shadow: 0 -1px 1px hsl(261, 27%, 25%);
-  background-color: hsl(261, 82%, 51%);
-  background-image: linear-gradient(to bottom, hsl(261, 82%, 53%), hsl(261, 82%, 47%));
+  background-color: hsl(261, 82%, 51%); */
+  /* background-image: linear-gradient(to bottom, hsl(261, 82%, 53%), hsl(261, 82%, 47%)); */
 }
 
 table caption ol li span[role="button"][aria-pressed]:hover {
-  border-color: hsl(261, 71%, 29%);
+    color: #AA0000;
+    border-color: #088099;
+    background-color: #f7f7f7;
+  /* border-color: hsl(261, 71%, 29%);
   background-color: hsl(261, 82%, 31%);
-  background-image: linear-gradient(to bottom, hsl(261, 82%, 33%), hsl(261, 82%, 27%));
+  background-image: linear-gradient(to bottom, hsl(261, 82%, 33%), hsl(261, 82%, 27%)); */
 }
 
 table caption ol li span[role="button"][aria-pressed="true"] {
-  padding-top: 0.5em;
+    color: #f7f7f7;
+    background-color: #088099;
+    border-color: #f7f7f7;
+  /* padding-top: 0.5em;
   padding-bottom: 0.3em;
   border-color: hsl(261, 71%, 49%);
   background-color: hsl(261, 82%, 31%);
   background-image: linear-gradient(to bottom, hsl(261, 82%, 63%), hsl(261, 82%, 57%));
-  box-shadow: inset 0 3px 5px 1px hsl(261, 82%, 30%);
+  box-shadow: inset 0 3px 5px 1px hsl(261, 82%, 30%); */
 }
 
 table caption ol li span[role="button"][aria-pressed="true"]:hover {
-  border-color: hsl(261, 71%, 49%);
+    color: #AA0000;
+    border-color: #088099;
+    background-color: #f7f7f7;
+  /* border-color: hsl(261, 71%, 49%);
   background-color: hsl(261, 82%, 31%);
   background-image: linear-gradient(to bottom, hsl(261, 82%, 43%), hsl(261, 82%, 37%));
-  box-shadow: inset 0 3px 5px 1px hsl(261, 82%, 20%);
+  box-shadow: inset 0 3px 5px 1px hsl(261, 82%, 20%); */
 }
 
 table caption ol li span[role="button"][aria-pressed]:focus::before {
-  border-color: hsl(261, 71%, 49%);
+    color: #f7f7f7;
+    background-color: #088099;
+    border-color: #f7f7f7;
+  /* border-color: hsl(261, 71%, 49%); */
 }
 
 table caption ol li span[role="button"] svg {
