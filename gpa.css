@@ -16,9 +16,6 @@ table input[type=text]:focus, textarea:focus {
   border: 1px solid rgba(81, 203, 238, 1);
 }
 
-/* table caption #addRowBTN {
-
-} */
 table caption ol li span[role="button"] {
   display: inline-block;
   position: relative;
@@ -26,7 +23,7 @@ table caption ol li span[role="button"] {
   border: 1px solid hsl(213, 71%, 49%);
   border-radius: 5px;
   box-shadow: 0 1px 2px hsl(216, 27%, 55%);
-  color: #fff;
+  color: #088099;
   text-shadow: 0 -1px 1px hsl(216, 27%, 25%);
   background-color: hsl(216, 82%, 51%);
   background-image: linear-gradient(to bottom, hsl(216, 82%, 53%), hsl(216, 82%, 47%));
@@ -39,7 +36,6 @@ table caption ol li span[role="button"]:hover {
   cursor: default;
 }
 
-/* #addRowBTN */
 table caption ol li span[role="button"]:focus {
   outline: none;
 }
