@@ -143,7 +143,7 @@
 		console.log("numRows before: " + numRows);
 		++numRows;
 		console.log("numRows after: " + numRows);
-		let headingText = 'Course'+numRows+'';
+		let headingText = 'Course '+numRows+'';
 		console.log("headingText: " + headingText);
 		let gradeId = 'grade'+numRows+'';
 		console.log("gradeId: " + gradeId);
