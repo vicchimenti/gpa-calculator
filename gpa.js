@@ -139,6 +139,7 @@
 	* the global numRows variable is incremented each time
 	*/
 	function addCourse() {
+		// assign ids for new html tags to local variables
 		console.log("numRows before: " + numRows);
 		++numRows;
 		console.log("numRows after: " + numRows);
@@ -150,13 +151,13 @@
 		console.log("creditsId: " + creditsId);
 
 
-
+		// append the new html tags to the quarter gpa table
 		$('#unweightedTable tbody').append(`'<tr>
 			<th>`+headingText+`</th>
-			<td><input type="text" id="grade'+numRows+'" class="grade" oninput="calculateGPA()" />
-			<label for="grade'+numRows+'" class="sr-only">'"Course "+numRows+" Letter Grade'</label></td>
-			<td><input type="text" id="credits'+numRows+'" class="credits" oninput="calculateGPA()" />
-			<label for="credits'+numRows+'" class="sr-only">'"Course "+numRows+" Courses'</label></td>
+			<td><input type="text" id="`+gradeId+`" class="grade" oninput="calculateGPA()" />
+			<label for="`+gradeId+`" class="sr-only">`+headingText+` Letter Grade</label></td>
+			<td><input type="text" id="`+creditsId+`" class="credits" oninput="calculateGPA()" />
+			<label for="`+creditsId+`" class="sr-only">`+headingText+` Courses</label></td>
 			</tr>'`);
 		console.log("add course ");
 	}
